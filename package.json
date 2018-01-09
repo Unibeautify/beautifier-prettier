@@ -1,6 +1,6 @@
 {
   "name": "beautifier-prettier",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Prettier beautifier for Unibeautify",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -14,7 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/Unibeautify/beautifier-prettier.git"
   },
-  "keywords": ["prettier", "unibeautify", "beautifier"],
+  "keywords": [
+    "prettier",
+    "unibeautify",
+    "beautifier"
+  ],
   "author": "Glavin Wiechert",
   "license": "MIT",
   "bugs": {
@@ -39,5 +43,7 @@
       }
     }
   },
-  "package-deps": ["atom-beautify"]
+  "package-deps": [
+    "atom-beautify"
+  ]
 }
