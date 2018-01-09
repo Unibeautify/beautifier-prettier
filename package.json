@@ -14,11 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/Unibeautify/beautifier-prettier.git"
   },
-  "keywords": [
-    "prettier",
-    "unibeautify",
-    "beautifier"
-  ],
+  "keywords": ["prettier", "unibeautify", "beautifier"],
   "author": "Glavin Wiechert",
   "license": "MIT",
   "bugs": {
@@ -35,5 +31,13 @@
     "ava": "^0.24.0",
     "typescript": "^2.6.2",
     "unibeautify": "^0.2.0"
-  }
+  },
+  "providedServices": {
+    "unibeautify": {
+      "versions": {
+        "1.0.0": "provideBeautifier"
+      }
+    }
+  },
+  "package-deps": ["atom-beautify"]
 }
