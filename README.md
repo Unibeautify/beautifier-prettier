@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-npm install --global beautifier-prettier
+npm install --global @unibeautify/beautifier-prettier
 ```
 
 ## Usage
