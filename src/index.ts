@@ -21,22 +21,40 @@ export const beautifier: Beautifier = {
         }
       ],
       tabWidth: [
-        ["indent_with_tabs", "indent_size"],
+        ["indent_with_tabs", "indent_size", "indent_char"],
         (options): number => {
-          if (options.indent_with_tabs === true) {
+          if (options.indent_with_tabs === true || options.indent_char === "\t") {
             return 1;
           } else {
-            return options.indent_size || 1;
+            return options.indent_size || 0;
           }
         }
       ],
       singleQuote: [
         ["convert_quotes"],
-        (options): boolean => {
-          if (options.convert_quotes === "double") {
-            return true;
+        (options): boolean | undefined => {
+          switch (options.convert_quotes) {
+            case "double":
+              return false;
+            case "single":
+              return true;
+            default:
+              return undefined;
           }
-          return false;
+        }
+      ],
+      printWidth: "wrap_line_length",
+      trailingComma: [
+        ["end_with_comma"],
+        (options): "none" | "es5" | "all" | undefined => {
+          switch (options.end_with_comma) {
+            case true:
+              return "es5";
+            case false:
+              return "none";
+            default:
+              return undefined;
+          }
         }
       ]
     },

@@ -1,6 +1,8 @@
 # beautifier-prettier
 
-> Prettier beautifier for Unibeautify
+[![Build Status](https://travis-ci.org/Unibeautify/beautifier-prettier.svg?branch=master)](https://travis-ci.org/Unibeautify/beautifier-prettier)
+
+> [Prettier](https://prettier.io/) beautifier for [Unibeautify](https://github.com/Unibeautify)
 
 ## Installation
 
