@@ -10,26 +10,25 @@ export const beautifier: Beautifier = {
   // link: "https://prettier.io/",
   options: {
     _: {
-      useTabs: [
-        ["indent_with_tabs", "indent_char"],
-        (options): boolean => {
-          if (options.indent_with_tabs === true) {
-            return true;
-          } else {
-            return options.indent_char === "\t";
+      arrowParens: [
+        ["arrow_parens"],
+        (options): "avoid" | "always" => {
+          switch (options.arrow_parens) {
+            case "always":
+              return "always";
+            case "as-needed":
+              return "avoid";
+            default:
+              return "avoid";
           }
         }
       ],
-      tabWidth: [
-        ["indent_with_tabs", "indent_size", "indent_char"],
-        (options): number => {
-          if (options.indent_with_tabs === true || options.indent_char === "\t") {
-            return 1;
-          } else {
-            return options.indent_size || 0;
-          }
-        }
-      ],
+      bracketSpacing: "object_curly_spacing",
+      insertPragma: "pragma_insert",
+      jsxBracketSameLine: "jsx_brackets",
+      printWidth: "wrap_line_length",
+      requirePragma: "pragma_require",
+      semi: "end_with_semicolon",
       singleQuote: [
         ["convert_quotes"],
         (options): boolean | undefined => {
@@ -43,7 +42,16 @@ export const beautifier: Beautifier = {
           }
         }
       ],
-      printWidth: "wrap_line_length",
+      tabWidth: [
+        ["indent_with_tabs", "indent_size", "indent_char"],
+        (options): number => {
+          if (options.indent_with_tabs === true || options.indent_char === "\t") {
+            return 1;
+          } else {
+            return options.indent_size || 0;
+          }
+        }
+      ],
       trailingComma: [
         ["end_with_comma"],
         (options): "none" | "es5" | "all" | undefined => {
@@ -56,7 +64,18 @@ export const beautifier: Beautifier = {
               return undefined;
           }
         }
-      ]
+      ],
+      useTabs: [
+        ["indent_with_tabs", "indent_char"],
+        (options): boolean => {
+          if (options.indent_with_tabs === true) {
+            return true;
+          } else {
+            return options.indent_char === "\t";
+          }
+        }
+      ],
+      proseWrap: "wrap_prose"
     },
     JavaScript: true,
     JSX: true,
