@@ -75,7 +75,6 @@ export const beautifier: Beautifier = {
           }
         }
       ],
-      proseWrap: "wrap_prose"
     },
     JavaScript: true,
     JSX: true,
@@ -85,7 +84,20 @@ export const beautifier: Beautifier = {
     SCSS: true,
     GraphQL: true,
     JSON: true,
-    Markdown: true
+    Markdown: {
+      arrowParens: false,
+      bracketSpacing: false,
+      insertPragma: false,
+      jsxBracketSameLine: false,
+      requirePragma: false,
+      semi: false,
+      singleQuote: false,
+      trailingComma: false,
+      tabWidth: false,
+      useTabs: false,
+      printWidth: "wrap_line_length",
+      proseWrap: "wrap_prose",
+    }
   },
   beautify(data) {
     return new Promise<string>((resolve, reject) => {
