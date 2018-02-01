@@ -25,7 +25,7 @@ function testWithSingleQuote(singleQuote) {
           JavaScript: {
             indent_char: " ",
             indent_size: 2,
-            convert_quotes: singleQuote ? "single" : "double",
+            quotes: singleQuote ? "single" : "double",
           }
         },
         text

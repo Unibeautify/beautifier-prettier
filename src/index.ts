@@ -30,9 +30,9 @@ export const beautifier: Beautifier = {
       requirePragma: "pragma_require",
       semi: "end_with_semicolon",
       singleQuote: [
-        ["convert_quotes"],
+        ["quotes"],
         (options): boolean | undefined => {
-          switch (options.convert_quotes) {
+          switch (options.quotes) {
             case "double":
               return false;
             case "single":
