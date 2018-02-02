@@ -84,6 +84,7 @@ export const beautifier: Beautifier = {
     SCSS: true,
     GraphQL: true,
     JSON: true,
+    Vue: true,
     Markdown: {
       arrowParens: false,
       bracketSpacing: false,
