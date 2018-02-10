@@ -1,13 +1,12 @@
 import * as prettier from "prettier";
 import { BuiltInParserName } from "prettier";
 import { Beautifier, Language } from "unibeautify";
-import { wrapBeautifier, AtomPackage } from "unibeautify-beautifier";
 
-const pkg = require("../package.json");
+const pkg: object = require("../package.json");
 
 export const beautifier: Beautifier = {
   name: "Prettier",
-  // link: "https://prettier.io/",
+  package: pkg,
   options: {
     _: {
       arrowParens: [
@@ -130,12 +129,4 @@ function parserForLanguage(language: Language): BuiltInParserName | undefined {
   return undefined;
 }
 
-const config = {};
-
-const wrappedBeautifier: Beautifier | AtomPackage = wrapBeautifier(
-  pkg,
-  beautifier,
-  config
-);
-export { Beautifier, AtomPackage };
-export default wrappedBeautifier;
+export default beautifier;
