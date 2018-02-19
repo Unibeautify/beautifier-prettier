@@ -1,10 +1,5 @@
-import test from "ava";
 import { newUnibeautify, Beautifier } from "unibeautify";
-import beautifier from "../../dist";
-
-test.beforeEach(t => {
-  t.context.unibeautify = newUnibeautify();
-});
+import beautifier from "../../src";
 
 testWithTabWidth(0, true);
 testWithTabWidth(1, true);
@@ -14,10 +9,10 @@ testWithTabWidth(0, false);
 testWithTabWidth(2, false);
 testWithTabWidth(4, false);
 
-function testWithTabWidth(tabWidth, useTabs = false) {
-  test(`should successfully beautify JavaScript text with useTabs=${useTabs} and tabWidth=${tabWidth}`, t => {
+function testWithTabWidth(tabWidth: number, useTabs: boolean = false) {
+  test(`should successfully beautify JavaScript text with useTabs=${useTabs} and tabWidth=${tabWidth}`, () => {
 
-    const { unibeautify } = t.context;
+    const unibeautify = newUnibeautify();
     unibeautify.loadBeautifier(beautifier);
 
     const indentChar = useTabs ? "\t" : " ";
@@ -41,7 +36,7 @@ ${indentation}return n + 1;
         text
       })
       .then(results => {
-        t.is(results, beautifierResult);
+        expect(results).toBe(beautifierResult);
       });
   });
 }

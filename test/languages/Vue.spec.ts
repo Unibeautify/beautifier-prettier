@@ -1,13 +1,8 @@
-import test from "ava";
 import { newUnibeautify, Beautifier } from "unibeautify";
-import beautifier from "../../dist";
+import beautifier from "../../src";
 
-test.beforeEach(t => {
-  t.context.unibeautify = newUnibeautify();
-});
-
-test("should successfully beautify Vue text", t => {
-  const { unibeautify } = t.context;
+test("should successfully beautify Vue text", () => {
+  const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
 
   const text = `<template >
@@ -25,7 +20,7 @@ module  .  exports  =
 
 <style   scoped >
 p { font-size : 2em ; text-align : center ; }
-  </style >  
+  </style >
 `;
   const beautifierResult = `<template >
   <h1 >{{greeting}}     world</h1 >
@@ -62,6 +57,6 @@ p {
       text
     })
     .then(results => {
-      t.is(results, beautifierResult);
+      expect(results).toBe(beautifierResult);
     });
 });
