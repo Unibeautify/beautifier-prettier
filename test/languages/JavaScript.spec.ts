@@ -1,13 +1,8 @@
-import test from "ava";
 import { newUnibeautify, Beautifier } from "unibeautify";
-import beautifier from "../../dist";
+import beautifier from "../../src";
 
-test.beforeEach(t => {
-  t.context.unibeautify = newUnibeautify();
-});
-
-test("should successfully beautify JavaScript text", t => {
-  const { unibeautify } = t.context;
+test("should successfully beautify JavaScript text", () => {
+  const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
 
   const text = `function test(n){return n+1;}`;
@@ -28,6 +23,6 @@ test("should successfully beautify JavaScript text", t => {
       text
     })
     .then(results => {
-      t.is(results, beautifierResult);
+      expect(results).toBe(beautifierResult);
     });
 });

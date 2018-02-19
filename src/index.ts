@@ -1,6 +1,6 @@
 import * as prettier from "prettier";
 import { BuiltInParserName } from "prettier";
-import { Beautifier, Language } from "unibeautify";
+import { Beautifier, Language, BeautifierBeautifyData } from "unibeautify";
 
 const pkg: object = require("../package.json");
 
@@ -99,7 +99,7 @@ export const beautifier: Beautifier = {
       proseWrap: "wrap_prose",
     }
   },
-  beautify(data) {
+  beautify(data: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
       const parser = parserForLanguage(data.language);
       if (!parser) {

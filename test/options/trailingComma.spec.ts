@@ -1,18 +1,13 @@
-import test from "ava";
 import { newUnibeautify, Beautifier } from "unibeautify";
-import beautifier from "../../dist";
-
-test.beforeEach(t => {
-  t.context.unibeautify = newUnibeautify();
-});
+import beautifier from "../../src";
 
 testWithTrailingComma("none");
 testWithTrailingComma("es5");
 testWithTrailingComma("all");
 
-function testWithTrailingComma(trailingComma) {
-  test(`should successfully beautify JavaScript text with trailingComma=${trailingComma}`, t => {
-    const { unibeautify } = t.context;
+function testWithTrailingComma(trailingComma: string) {
+  test(`should successfully beautify JavaScript text with trailingComma=${trailingComma}`, () => {
+    const unibeautify = newUnibeautify();
     unibeautify.loadBeautifier(beautifier);
 
     const endWithComma = trailingComma === "es5";
@@ -33,7 +28,7 @@ function testWithTrailingComma(trailingComma) {
         text
       })
       .then(results => {
-        t.is(results, beautifierResult);
+        expect(results).toBe(beautifierResult);
       });
   });
 }

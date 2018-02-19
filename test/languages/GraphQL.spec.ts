@@ -1,13 +1,8 @@
-import test from "ava";
 import { newUnibeautify, Beautifier } from "unibeautify";
-import beautifier from "../../dist";
+import beautifier from "../../src";
 
-test.beforeEach(t => {
-  t.context.unibeautify = newUnibeautify();
-});
-
-test("should successfully beautify GraphQL text", t => {
-  const { unibeautify } = t.context;
+test("should successfully beautify GraphQL text", () => {
+  const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
 
   const text = `{
@@ -34,6 +29,6 @@ tagline
       text
     })
     .then(results => {
-      t.is(results, beautifierResult);
+      expect(results).toBe(beautifierResult);
     });
 });
