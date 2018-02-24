@@ -14,7 +14,7 @@ test(`should successfully beautify JavaScript text with single quotes`, () => {
       languageName: "JavaScript",
       options: {
         JavaScript: {
-          indent_char: " ",
+          indent_style: "space",
           indent_size: 2,
           quotes: "single"
         }
@@ -39,7 +39,7 @@ test(`should successfully beautify JavaScript text with double quotes`, () => {
       languageName: "JavaScript",
       options: {
         JavaScript: {
-          indent_char: " ",
+          indent_style: "space",
           indent_size: 2,
           quotes: "double"
         }

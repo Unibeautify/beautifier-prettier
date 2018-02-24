@@ -22,7 +22,7 @@ test("should successfully beautify JSX text", () => {
       languageName: "JSX",
       options: {
         JSX: {
-          indent_char: " ",
+          indent_style: "space",
           indent_size: 2
         }
       },

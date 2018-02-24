@@ -22,7 +22,7 @@ tagline
       languageName: "GraphQL",
       options: {
         GraphQL: {
-          indent_char: " ",
+          indent_style: "space",
           indent_size: 2
         }
       },
