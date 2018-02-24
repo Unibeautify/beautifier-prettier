@@ -1,4 +1,4 @@
-import { BeautifierOptions, OptionValues, BeautifierLanguageOptions } from "unibeautify";
+import { BeautifierOptions, OptionValues, BeautifierLanguageOptions, BeautifierLanguageOptionComplex } from "unibeautify";
 
 const commonOptions: BeautifierLanguageOptions = {
   insertPragma: "pragma_insert",
@@ -78,18 +78,10 @@ const scriptOptions: BeautifierLanguageOptions = {
 };
 
 const options = {
-  Markup: {
-    ...commonOptions
-  },
-  Markdown: {
-    ...markdownOptions
-  },
-  Script: {
-    ...scriptOptions
-  },
-  Style: {
-    ...commonOptions,
-  }
+  Markup: commonOptions,
+  Markdown: markdownOptions,
+  Script: scriptOptions,
+  Style: commonOptions
 };
 
 export default options;
