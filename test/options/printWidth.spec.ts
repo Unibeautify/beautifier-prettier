@@ -41,7 +41,7 @@ function beautifyWithPrintWidth(unibeautify: Unibeautify, text: string, printWid
     languageName: "JavaScript",
     options: {
       JavaScript: {
-        indent_char: " ",
+        indent_style: "space",
         indent_size: indentSize,
         end_with_comma: false,
         wrap_line_length: printWidth

@@ -17,6 +17,7 @@ function testWithTabWidth(tabWidth: number, useTabs: boolean = false) {
 
     const indentChar = useTabs ? "\t" : " ";
     const indentation = useTabs ? "\t" : indentChar.repeat(tabWidth);
+    const indentArg = useTabs ? "tab" : "space";
 
     const text = `function test(n){return n+1;}`;
     const beautifierResult = `function test(n) {
@@ -29,7 +30,7 @@ ${indentation}return n + 1;
         languageName: "JavaScript",
         options: {
           JavaScript: {
-            indent_char: indentChar,
+            indent_style: indentArg,
             indent_size: tabWidth
           }
         },

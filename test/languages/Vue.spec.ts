@@ -50,7 +50,7 @@ p {
       languageName: "Vue",
       options: {
         Vue: {
-          indent_char: " ",
+          indent_style: "space",
           indent_size: 2
         }
       },

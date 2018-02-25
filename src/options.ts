@@ -18,24 +18,14 @@ const commonOptions: BeautifierLanguageOptions = {
       }
     }
   ],
-  tabWidth: [
-    ["indent_with_tabs", "indent_size", "indent_char"],
-    (options): number => {
-      if (options.indent_with_tabs === true || options.indent_char === "\t") {
-        return 1;
-      } else {
-        return options.indent_size || 0;
-      }
-    }
-  ],
+  tabWidth: "indent_size",
   useTabs: [
-    ["indent_with_tabs", "indent_char"],
+    ["indent_style"],
     (options): boolean => {
-      if (options.indent_with_tabs === true) {
+      if (options.indent_style === "tab") {
         return true;
-      } else {
-        return options.indent_char === "\t";
       }
+      return false;
     }
   ]
 };

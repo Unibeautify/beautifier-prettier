@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Unibeautify/beautifier-prettier#readme",
   "peerDependencies": {
-    "unibeautify": "^0.7.0",
+    "unibeautify": "^0.8.0",
     "prettier": "^1.10.2"
   },
   "devDependencies": {

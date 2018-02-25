@@ -20,7 +20,7 @@ function testWithTrailingComma(trailingComma: string) {
         languageName: "JavaScript",
         options: {
           JavaScript: {
-            indent_char: " ",
+            indent_style: "space",
             indent_size: 2,
             end_with_comma: endWithComma,
           }

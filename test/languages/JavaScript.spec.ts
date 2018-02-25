@@ -16,7 +16,7 @@ test("should successfully beautify JavaScript text", () => {
       languageName: "JavaScript",
       options: {
         JavaScript: {
-          indent_char: " ",
+          indent_style: "space",
           indent_size: 2
         }
       },
