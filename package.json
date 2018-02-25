@@ -2,8 +2,8 @@
   "name": "@unibeautify/beautifier-prettier",
   "version": "0.7.0",
   "description": "Prettier beautifier for Unibeautify",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "tsc",
