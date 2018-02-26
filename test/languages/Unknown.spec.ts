@@ -8,6 +8,7 @@ test(`should fail to find a parser for the language`, () => {
     extensions: ["test"],
     name: "TestLanguage",
     namespace: "test",
+    since: "0.0.0",
     sublimeSyntaxes: [],
     vscodeLanguages: []
   };
