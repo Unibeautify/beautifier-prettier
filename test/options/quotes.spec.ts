@@ -16,10 +16,10 @@ test(`should successfully beautify JavaScript text with single quotes`, () => {
         JavaScript: {
           indent_style: "space",
           indent_size: 2,
-          quotes: "single"
-        }
+          quotes: "single",
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
@@ -42,10 +42,10 @@ test(`should successfully beautify JavaScript text with double quotes`, () => {
         JavaScript: {
           indent_style: "space",
           indent_size: 2,
-          quotes: "double"
-        }
+          quotes: "double",
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

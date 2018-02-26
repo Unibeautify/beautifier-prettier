@@ -11,17 +11,19 @@ function testArrowParens(arrowParens: string) {
 
     const addArrowParens = arrowParens === "always";
     const text = `a.then(${addArrowParens ? "foo" : "(foo)"} => {});\n`;
-    const beautifierResult = `a.then(${addArrowParens ? "(foo)" : "foo"} => {});\n`;
+    const beautifierResult = `a.then(${
+      addArrowParens ? "(foo)" : "foo"
+    } => {});\n`;
 
     return unibeautify
       .beautify({
         languageName: "JavaScript",
         options: {
           JavaScript: {
-            arrow_parens: arrowParens
-          }
+            arrow_parens: arrowParens,
+          },
         },
-        text
+        text,
       })
       .then(results => {
         expect(results).toBe(beautifierResult);
