@@ -10,21 +10,23 @@ test(`should fail to find a parser for the language`, () => {
     namespace: "test",
     since: "0.0.0",
     sublimeSyntaxes: [],
-    vscodeLanguages: []
+    vscodeLanguages: [],
   };
   unibeautify.loadLanguage(testLanguage);
   const testBeautifier = {
     ...beautifier,
     options: {
       [testLanguage.name]: true,
-    }
+    },
   };
   unibeautify.loadBeautifier(testBeautifier);
-  expect(unibeautify
-    .beautify({
+  expect(
+    unibeautify.beautify({
       languageName: testLanguage.name,
       options: {},
       text: "",
     })
-  ).rejects.toThrowError(`Prettier Parser not found for langauge ${testLanguage.name}.`);
+  ).rejects.toThrowError(
+    `Prettier Parser not found for langauge ${testLanguage.name}.`
+  );
 });
