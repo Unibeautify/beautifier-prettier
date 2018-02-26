@@ -1,4 +1,9 @@
-import { BeautifierOptions, OptionValues, BeautifierLanguageOptions, BeautifierLanguageOptionComplex } from "unibeautify";
+import {
+  BeautifierOptions,
+  OptionValues,
+  BeautifierLanguageOptions,
+  BeautifierLanguageOptionComplex,
+} from "unibeautify";
 
 const commonOptions: BeautifierLanguageOptions = {
   insertPragma: "pragma_insert",
@@ -16,7 +21,7 @@ const commonOptions: BeautifierLanguageOptions = {
         default:
           return undefined;
       }
-    }
+    },
   ],
   tabWidth: "indent_size",
   useTabs: [
@@ -26,13 +31,13 @@ const commonOptions: BeautifierLanguageOptions = {
         return true;
       }
       return false;
-    }
-  ]
+    },
+  ],
 };
 
 const markdownOptions: BeautifierLanguageOptions = {
   ...commonOptions,
-  proseWrap: "wrap_prose"
+  proseWrap: "wrap_prose",
 };
 
 const scriptOptions: BeautifierLanguageOptions = {
@@ -48,7 +53,7 @@ const scriptOptions: BeautifierLanguageOptions = {
         default:
           return "avoid";
       }
-    }
+    },
   ],
   bracketSpacing: "object_curly_spacing",
   jsxBracketSameLine: "jsx_brackets",
@@ -63,7 +68,7 @@ const scriptOptions: BeautifierLanguageOptions = {
         default:
           return undefined;
       }
-    }
+    },
   ],
 };
 
@@ -71,7 +76,7 @@ const options = {
   Markup: commonOptions,
   Markdown: markdownOptions,
   Script: scriptOptions,
-  Style: commonOptions
+  Style: commonOptions,
 };
 
 export default options;

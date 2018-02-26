@@ -34,11 +34,11 @@ export const beautifier: Beautifier = {
       const text = prettier.format(data.text, {
         ...data.options,
         parser,
-        filepath: data.filePath
+        filepath: data.filePath,
       });
       return resolve(text);
     }) as any;
-  }
+  },
 };
 
 function parserForLanguage(language: Language): BuiltInParserName | undefined {

@@ -11,7 +11,6 @@ testWithTabWidth(4, false);
 
 function testWithTabWidth(tabWidth: number, useTabs: boolean = false) {
   test(`should successfully beautify JavaScript text with useTabs=${useTabs} and tabWidth=${tabWidth}`, () => {
-
     const unibeautify = newUnibeautify();
     unibeautify.loadBeautifier(beautifier);
 
@@ -31,10 +30,10 @@ ${indentation}return n + 1;
         options: {
           JavaScript: {
             indent_style: indentArg,
-            indent_size: tabWidth
-          }
+            indent_size: tabWidth,
+          },
         },
-        text
+        text,
       })
       .then(results => {
         expect(results).toBe(beautifierResult);

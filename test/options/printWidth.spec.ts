@@ -18,24 +18,36 @@ function testWithPrintWidth(printWidth: number) {
     const shortBeautifierResult = shortText;
 
     if (shortText.length > printWidth) {
-      throw new Error(`Test text will always wrap. Please use a printWidth value greater than ${shortText.length}.`);
+      throw new Error(
+        `Test text will always wrap. Please use a printWidth value greater than ${
+          shortText.length
+        }.`
+      );
     }
     const longText = `["${veryLongString}", "${veryLongString}"];\n`;
     const longBeautifierResult = `[\n  "${veryLongString}",\n  "${veryLongString}"\n];\n`;
 
     const indentSize = 2;
     return Promise.all([
-      beautifyWithPrintWidth(unibeautify, shortText, printWidth).then(results => {
-        expect(results).toBe(shortBeautifierResult);
-      }),
-      beautifyWithPrintWidth(unibeautify, longText, printWidth).then(results => {
-        expect(results).toBe(longBeautifierResult);
-      })
+      beautifyWithPrintWidth(unibeautify, shortText, printWidth).then(
+        results => {
+          expect(results).toBe(shortBeautifierResult);
+        }
+      ),
+      beautifyWithPrintWidth(unibeautify, longText, printWidth).then(
+        results => {
+          expect(results).toBe(longBeautifierResult);
+        }
+      ),
     ]);
   });
 }
 
-function beautifyWithPrintWidth(unibeautify: Unibeautify, text: string, printWidth: number) {
+function beautifyWithPrintWidth(
+  unibeautify: Unibeautify,
+  text: string,
+  printWidth: number
+) {
   const indentSize = 2;
   return unibeautify.beautify({
     languageName: "JavaScript",
@@ -44,19 +56,14 @@ function beautifyWithPrintWidth(unibeautify: Unibeautify, text: string, printWid
         indent_style: "space",
         indent_size: indentSize,
         end_with_comma: false,
-        wrap_line_length: printWidth
-      }
+        wrap_line_length: printWidth,
+      },
     },
-    text
+    text,
   });
 }
 
-// function createWrappedText(printWidth) {
-//   const indentation = "  ";
-//   const veryLongString = "c".repeat(Math.ceil(printWidth / 2));
-
-//   const beautifierResult = `[\n  "${veryLongString}",\n  "${veryLongString}"${
-//     endWithComma ? "," : ""
-//   }\n];\n`;
-
-// }
+// function createWrappedText(printWidth) {   const indentation = "  ";   const
+// veryLongString = "c".repeat(Math.ceil(printWidth / 2));   const
+// beautifierResult = `[\n  "${veryLongString}",\n  "${veryLongString}"${
+// endWithComma ? "," : ""   }\n];\n`; }

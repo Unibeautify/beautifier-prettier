@@ -23,10 +23,10 @@ tagline
       options: {
         GraphQL: {
           indent_style: "space",
-          indent_size: 2
-        }
+          indent_size: 2,
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);

@@ -16,10 +16,10 @@ test(`should successfully beautify JavaScript text with single quotes`, () => {
         JavaScript: {
           indent_style: "space",
           indent_size: 2,
-          quotes: "single"
-        }
+          quotes: "single",
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
@@ -30,6 +30,7 @@ test(`should successfully beautify JavaScript text with double quotes`, () => {
   const unibeautify = newUnibeautify();
   unibeautify.loadBeautifier(beautifier);
 
+  // unibeautify:ignore-next-line
   const quote = '"';
   const text = `console.log('hello world');\nconsole.log("hello world");\n`;
   const beautifierResult = `console.log(${quote}hello world${quote});\nconsole.log(${quote}hello world${quote});\n`;
@@ -41,10 +42,10 @@ test(`should successfully beautify JavaScript text with double quotes`, () => {
         JavaScript: {
           indent_style: "space",
           indent_size: 2,
-          quotes: "double"
-        }
+          quotes: "double",
+        },
       },
-      text
+      text,
     })
     .then(results => {
       expect(results).toBe(beautifierResult);
