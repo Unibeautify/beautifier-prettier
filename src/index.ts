@@ -1,6 +1,6 @@
 import * as prettier from "prettier";
 import { BuiltInParserName } from "prettier";
-import { Beautifier, Language, BeautifierBeautifyData } from "unibeautify";
+import { Beautifier, Language, BeautifierBeautifyData, DependencyType } from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
 
 import options from "./options";
@@ -9,6 +9,13 @@ const { pkg } = readPkgUp.sync({ cwd: __dirname });
 export const beautifier: Beautifier = {
   name: "Prettier",
   package: pkg,
+  dependencies: [
+    {
+      type: DependencyType.Node,
+      name: "Prettier",
+      package: "prettier",
+    }
+  ],
   options: {
     CSS: options.Style,
     GraphQL: options.Script,
