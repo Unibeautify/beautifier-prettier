@@ -1,10 +1,14 @@
-import * as prettier from "prettier";
-import { BuiltInParserName } from "prettier";
-import { Beautifier, Language, BeautifierBeautifyData, DependencyType } from "unibeautify";
+import { BuiltInParserName, format, SupportInfo, Options } from "prettier";
+import { Beautifier, Language, BeautifierBeautifyData, DependencyType, NodeDependency } from "unibeautify";
 import * as readPkgUp from "read-pkg-up";
 
 import options from "./options";
 const { pkg } = readPkgUp.sync({ cwd: __dirname });
+
+interface Prettier {
+  format(source: string, options?: Options): string;
+  getSupportInfo(): SupportInfo;
+}
 
 export const beautifier: Beautifier = {
   name: "Prettier",
@@ -28,27 +32,28 @@ export const beautifier: Beautifier = {
     TypeScript: options.Script,
     Vue: options.Script,
   },
-  beautify(data: BeautifierBeautifyData) {
+  beautify({ text, options, language, filePath, dependencies }: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
-      const parser = parserForLanguage(data.language);
+      const prettier: Prettier = dependencies.get<NodeDependency>("Prettier").package;
+      const parser = parserForLanguage(prettier, language);
       if (!parser) {
         return reject(
           new Error(
-            `Prettier Parser not found for langauge ${data.language.name}.`
+            `Prettier Parser not found for langauge ${language.name}.`
           )
         );
       }
-      const text = prettier.format(data.text, {
-        ...data.options,
+      const result = prettier.format(text, {
+        ...options,
         parser,
-        filepath: data.filePath,
+        filepath: filePath,
       });
-      return resolve(text);
+      return resolve(result);
     }) as any;
   },
 };
 
-function parserForLanguage(language: Language): BuiltInParserName | undefined {
+function parserForLanguage(prettier: Prettier, language: Language): BuiltInParserName | undefined {
   const prettierLanguage = prettier
     .getSupportInfo()
     .languages.find(lang => lang.name === language.name);
