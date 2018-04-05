@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/Unibeautify/beautifier-prettier#readme",
   "peerDependencies": {
-    "unibeautify": ">= 0.9.1",
+    "unibeautify": ">= 0.11.1",
     "prettier": "^1.11.1"
   },
   "devDependencies": {
