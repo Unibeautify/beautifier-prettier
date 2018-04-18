@@ -12,7 +12,7 @@ test("should successfully beautify Markdown text", () => {
       languageName: "Markdown",
       options: {
         Markdown: {
-          pragma_insert: true
+          pragma_insert: true,
         },
       },
       text,
