@@ -1,4 +1,10 @@
-import { BuiltInParserName, format, SupportInfo, Options } from "prettier";
+import {
+  BuiltInParserName,
+  format,
+  SupportInfo,
+  Options,
+  resolveConfig as ResolveConfig,
+} from "prettier";
 import {
   Beautifier,
   Language,
@@ -38,12 +44,24 @@ export const beautifier: Beautifier = {
     TypeScript: options.Script,
     Vue: options.Script,
   },
+  resolveConfig: ({ filePath, dependencies }) => {
+    if (!filePath) {
+      return Promise.resolve({});
+    }
+    const resolveConfig: typeof ResolveConfig = dependencies.get<
+      NodeDependency
+    >("Prettier").package.resolveConfig;
+    return resolveConfig(filePath, { useCache: false }).then((config: any) => ({
+      config,
+    }));
+  },
   beautify({
     text,
     options,
     language,
     filePath,
     dependencies,
+    beautifierConfig,
   }: BeautifierBeautifyData) {
     return new Promise<string>((resolve, reject) => {
       const prettier: Prettier = dependencies.get<NodeDependency>("Prettier")
@@ -54,8 +72,12 @@ export const beautifier: Beautifier = {
           new Error(`Prettier Parser not found for langauge ${language.name}.`)
         );
       }
+      const finalOptions =
+        beautifierConfig && beautifierConfig.config
+          ? beautifierConfig.config
+          : options;
       const result = prettier.format(text, {
-        ...options,
+        ...finalOptions,
         parser,
         filepath: filePath,
       });

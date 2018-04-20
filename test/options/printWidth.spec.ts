@@ -62,8 +62,3 @@ function beautifyWithPrintWidth(
     text,
   });
 }
-
-// function createWrappedText(printWidth) {   const indentation = "  ";   const
-// veryLongString = "c".repeat(Math.ceil(printWidth / 2));   const
-// beautifierResult = `[\n  "${veryLongString}",\n  "${veryLongString}"${
-// endWithComma ? "," : ""   }\n];\n`; }
