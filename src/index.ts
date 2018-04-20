@@ -51,9 +51,7 @@ export const beautifier: Beautifier = {
     const resolveConfig: typeof ResolveConfig = dependencies.get<
       NodeDependency
     >("Prettier").package.resolveConfig;
-    return resolveConfig(filePath, {
-      useCache: false,
-    }).then((config: any) => ({
+    return resolveConfig(filePath, { useCache: false }).then((config: any) => ({
       config,
     }));
   },
