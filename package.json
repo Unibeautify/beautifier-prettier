@@ -1,6 +1,6 @@
 {
   "name": "@unibeautify/beautifier-prettier",
-  "version": "0.7.5",
+  "version": "0.8.0",
   "description": "Prettier beautifier for Unibeautify",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
