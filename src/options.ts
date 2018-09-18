@@ -9,20 +9,6 @@ const commonOptions: BeautifierLanguageOptions = {
   insertPragma: "pragma_insert",
   printWidth: "wrap_line_length",
   requirePragma: "pragma_require",
-  semi: "end_with_semicolon",
-  singleQuote: [
-    ["quotes"],
-    (options): boolean | undefined => {
-      switch (options.quotes) {
-        case "double":
-          return false;
-        case "single":
-          return true;
-        default:
-          return undefined;
-      }
-    },
-  ],
   tabWidth: "indent_size",
   useTabs: [
     ["indent_style"],
@@ -39,6 +25,8 @@ const markdownOptions: BeautifierLanguageOptions = {
   ...commonOptions,
   proseWrap: "wrap_prose",
 };
+delete markdownOptions.tabWidth;
+delete markdownOptions.useTabs;
 
 const scriptOptions: BeautifierLanguageOptions = {
   ...commonOptions,
@@ -70,13 +58,42 @@ const scriptOptions: BeautifierLanguageOptions = {
       }
     },
   ],
+  semi: "end_with_semicolon",
+  singleQuote: [
+    ["quotes"],
+    (options): boolean | undefined => {
+      switch (options.quotes) {
+        case "double":
+          return false;
+        case "single":
+          return true;
+        default:
+          return undefined;
+      }
+    },
+  ],
 };
 
+const jsonOptions: BeautifierLanguageOptions = {
+  ...commonOptions,
+};
+delete jsonOptions.insertPragma;
+delete jsonOptions.requirePragma;
+delete jsonOptions.printWidth;
+
+const vueOptions: BeautifierLanguageOptions = {
+  ...commonOptions,
+};
+delete vueOptions.printWidth;
+
 const options = {
+  JSON: jsonOptions,
   Markup: commonOptions,
   Markdown: markdownOptions,
   Script: scriptOptions,
   Style: commonOptions,
+  GraphQL: commonOptions,
+  Vue: vueOptions,
 };
 
 export default options;

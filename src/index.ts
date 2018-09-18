@@ -34,15 +34,16 @@ export const beautifier: Beautifier = {
   ],
   options: {
     CSS: options.Style,
-    GraphQL: options.Script,
+    GraphQL: options.GraphQL,
     JavaScript: options.Script,
-    JSON: options.Script,
+    JSON: options.JSON,
+    JSON5: options.JSON,
     JSX: options.Script,
     Less: options.Style,
     Markdown: options.Markdown,
     SCSS: options.Style,
     TypeScript: options.Script,
-    Vue: options.Script,
+    Vue: options.Vue,
   },
   resolveConfig: ({ filePath, dependencies }) => {
     if (!filePath) {
