@@ -44,6 +44,7 @@ export const beautifier: Beautifier = {
     SCSS: options.Style,
     TypeScript: options.Script,
     Vue: options.Vue,
+    YAML: options.YAML,
   },
   resolveConfig: ({ filePath, dependencies }) => {
     if (!filePath) {

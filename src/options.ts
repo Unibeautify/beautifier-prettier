@@ -86,6 +86,12 @@ const vueOptions: BeautifierLanguageOptions = {
 };
 delete vueOptions.printWidth;
 
+const yamlOptions: BeautifierLanguageOptions = {
+  bracketSpacing: "object_curly_spacing",
+  proseWrap: "wrap_prose",
+  singleQuote: "quotes",
+};
+
 const options = {
   JSON: jsonOptions,
   Markup: commonOptions,
@@ -94,6 +100,7 @@ const options = {
   Style: commonOptions,
   GraphQL: commonOptions,
   Vue: vueOptions,
+  YAML: yamlOptions,
 };
 
 export default options;
