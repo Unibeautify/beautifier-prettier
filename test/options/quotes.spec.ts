@@ -51,3 +51,54 @@ test(`should successfully beautify JavaScript text with double quotes`, () => {
       expect(results).toBe(beautifierResult);
     });
 });
+
+test(`should successfully beautify CSS text with single quotes`, () => {
+  const unibeautify = newUnibeautify();
+  unibeautify.loadBeautifier(beautifier);
+
+  const quote = "'";
+  const text = `p {\n  content: "hello";\n}`;
+  const beautifierResult = `p {\n  content: ${quote}hello${quote};\n}\n`;
+
+  return unibeautify
+    .beautify({
+      languageName: "CSS",
+      options: {
+        CSS: {
+          indent_style: "space",
+          indent_size: 2,
+          quotes: "single",
+        },
+      },
+      text,
+    })
+    .then(results => {
+      expect(results).toBe(beautifierResult);
+    });
+});
+
+test(`should successfully beautify CSS text with double quotes`, () => {
+  const unibeautify = newUnibeautify();
+  unibeautify.loadBeautifier(beautifier);
+
+  // unibeautify:ignore-next-line
+  const quote = '"';
+  const text = `p {\n  content: 'hello';\n}`;
+  const beautifierResult = `p {\n  content: ${quote}hello${quote};\n}\n`;
+
+  return unibeautify
+    .beautify({
+      languageName: "CSS",
+      options: {
+        CSS: {
+          indent_style: "space",
+          indent_size: 2,
+          quotes: "double",
+        },
+      },
+      text,
+    })
+    .then(results => {
+      expect(results).toBe(beautifierResult);
+    });
+});
