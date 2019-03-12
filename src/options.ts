@@ -92,12 +92,17 @@ const yamlOptions: BeautifierLanguageOptions = {
   singleQuote: scriptOptions.singleQuote,
 };
 
+const styleOptions: BeautifierLanguageOptions = {
+  ...commonOptions,
+  singleQuote: scriptOptions.singleQuote,
+};
+
 const options = {
   JSON: jsonOptions,
   Markup: commonOptions,
   Markdown: markdownOptions,
   Script: scriptOptions,
-  Style: commonOptions,
+  Style: styleOptions,
   GraphQL: commonOptions,
   Vue: vueOptions,
   YAML: yamlOptions,
