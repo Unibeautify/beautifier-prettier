@@ -22,10 +22,12 @@ module  .  exports  =
 p { font-size : 2em ; text-align : center ; }
   </style >
 `;
-  const beautifierResult = `<template >
-  <h1 >{{greeting}}     world</h1 >
-  <script>kikoo ( ) </script>
-</template >
+  const beautifierResult = `<template>
+  <h1>{{ greeting }} world</h1>
+  <script>
+    kikoo();
+  </script>
+</template>
 
 <script>
 module.exports = {
@@ -37,12 +39,12 @@ module.exports = {
 };
 </script>
 
-<style   scoped >
+<style scoped>
 p {
   font-size: 2em;
   text-align: center;
 }
-</style >
+</style>
 `;
 
   return unibeautify
