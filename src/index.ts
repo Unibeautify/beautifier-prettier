@@ -15,7 +15,7 @@ import {
 import * as readPkgUp from "read-pkg-up";
 
 import options from "./options";
-const pkg = readPkgUp.sync({ cwd: __dirname })!.package;
+const pkg = readPkgUp.sync({ cwd: __dirname })!.packageJson;
 
 interface Prettier {
   format(source: string, options?: Options): string;
