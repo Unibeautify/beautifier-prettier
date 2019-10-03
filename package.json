@@ -33,7 +33,7 @@
     "prettier": "^1.11.1"
   },
   "devDependencies": {
-    "@types/node": "12.7.9",
+    "@types/node": "12.7.10",
     "@types/jest": "24.0.18",
     "@types/prettier": "1.18.2",
     "jest": "24.9.0",
